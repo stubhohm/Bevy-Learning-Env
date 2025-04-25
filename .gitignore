@@ -1,0 +1,52 @@
+# Compiled files
+/target/
+**/*.rs.bk
+
+# Backup files
+*~
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# IntelliJ/Rust plugin
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Byebug command history
+.byebug_history
+
+# Node/npm (if you use frontend stuff)
+node_modules/
+
+# Cargo specific
+/.cargo/
+Cargo.lock
+
+# Optional: ignore coverage files
+/coverage/
+*.lcov
+
+# Optional: ignore logs
+*.log
+
+# Optional: if using docker
+docker-compose.override.yml
+
+# Optional: if using wasm-pack
+/pkg/
+*.wasm
+
+# Optional: if using cbindgen
+bindings.h
