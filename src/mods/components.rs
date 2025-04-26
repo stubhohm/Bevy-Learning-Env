@@ -94,3 +94,19 @@ pub struct BezierPath {
     pub duration: f32,     // total time to travel the path
     pub elapsed: f32,      // current time along the path
 }
+
+impl BezierPath {
+    pub fn mirror_x(&self) -> Self {
+        let mirrored_segements = 
+        self.segments.iter().map(|segment| {
+             BezierSegment {
+                p0: Vec2 { x: (-segment.p0.x), y: (segment.p0.y) },
+                p1: Vec2 { x: (-segment.p1.x), y: (segment.p1.y) },
+                p2: Vec2 { x: (-segment.p2.x), y: (segment.p2.y) },
+                p3: Vec2 { x: (-segment.p3.x), y: (segment.p3.y) },
+
+            }
+        }).collect();
+        Self { segments: (mirrored_segements), duration: (self.duration), elapsed: (self.elapsed) }
+    }
+}

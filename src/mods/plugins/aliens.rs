@@ -3,6 +3,7 @@ use bevy::math::vec3;
 use bevy::prelude::*;
 use bevy::transform;
 
+use crate::mods::bezier_paths;
 use crate::mods::resources::*;
 use crate::mods::components::*;
 use crate::mods::bezier_paths::*;
@@ -17,11 +18,12 @@ impl Plugin for AliensPlugin {
     }
 }
 
-fn spawn_aliens(
-    mut commands: Commands,
-    game_assets: Res<RGameAssets>,
+fn spawn_alien (
+    commands: &mut Commands,
+    game_assets: &Res<RGameAssets>,
+    entry_path: BezierPath,
 ) {
-        
+
     commands.spawn((
         SpriteBundle {
             texture: game_assets.aliens.bumblebee.ship[0].clone(),
@@ -35,10 +37,22 @@ fn spawn_aliens(
         },
         CAlien,
         CShip,
+        CBumblebee,
         AlienStates::Entering,
-        lower_left_looping_entry_path(),
+        entry_path,
     ));
 
+}
+
+fn spawn_aliens(
+    mut commands: Commands,
+    game_assets: Res<RGameAssets>,
+) {
+    let platoon_size:i8 = 8;
+    for i in 0..platoon_size {
+        spawn_alien(&mut commands, &game_assets,  lower_left_looping_entry_path(i));
+        spawn_alien(&mut commands, &game_assets,lower_left_looping_entry_path(i + 10 as i8).mirror_x());
+    }   
 }
 
 fn update_aliens (
