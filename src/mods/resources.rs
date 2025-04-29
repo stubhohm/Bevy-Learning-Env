@@ -11,6 +11,9 @@ pub struct RScore(pub i8);
 pub struct RDebugBezier(pub bool);
 
 #[derive(Resource)]
+pub struct RLevel (pub i64);
+
+#[derive(Resource)]
 pub struct RGameAssets {
     pub player: ShipAssets,
     pub aliens: Aliens,

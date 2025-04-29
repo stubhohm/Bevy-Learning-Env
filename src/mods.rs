@@ -4,6 +4,7 @@ pub mod plugins {
     pub mod missile;
     pub mod assets; 
     pub mod bezier;
+    pub mod stage;
 }
 
 pub mod resources;

@@ -37,6 +37,9 @@ pub struct CGalaga;
 #[derive(Component)]
 pub struct CCapturedFighter;
 
+#[derive(Component)]
+pub struct CStar{pub depth: f32}
+
 #[derive(SystemSet, Debug, Hash, PartialEq, Eq, Clone)]
 pub enum StartupSet {
     LoadAssets,

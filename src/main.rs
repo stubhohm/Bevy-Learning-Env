@@ -11,8 +11,7 @@ use crate::mods::plugins::bezier::*;
 use crate::mods::plugins::player::*;
 use crate::mods::plugins::aliens::*;
 use crate::mods::plugins::missile::*;
-
-
+use crate::mods::plugins::stage::*;
 
 
 fn main () {
@@ -28,12 +27,15 @@ fn main () {
         }),
         ..default()
     }))
+    .insert_resource(ClearColor(Color::BLACK))
     .insert_resource(RDebugBezier(true))
+    .insert_resource(RLevel(1))
     .add_plugins(AssetPlugin)
     .add_plugins(PlayerPlugin)
     .add_plugins(AliensPlugin)
     .add_plugins(MissilePlugin)
     .add_plugins(BezierCurvePlugin)
+    .add_plugins(StagePlugin)
     .run();
 }
 
