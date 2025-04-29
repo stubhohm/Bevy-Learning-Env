@@ -1,7 +1,5 @@
 use bevy::prelude::*;
 
-#[derive(Resource)]
-pub struct RGreetTimer(pub Timer);
 
 #[derive(Resource, Deref, DerefMut)]
 pub struct RScore(pub i8);
